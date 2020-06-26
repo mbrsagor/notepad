@@ -40,3 +40,7 @@
 ul li {
   list-style-type: none;
 }
+
+.action_icon svg{
+  cursor: pointer;
+}

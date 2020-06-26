@@ -27,6 +27,13 @@ class App extends Component {
     ]
   }
 
+  deleteHandler = (id) => {
+    let new_book = this.state.books.filter(book => book.id !== id)
+    this.setState({
+      books: new_book
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -66,7 +73,7 @@ class App extends Component {
         <br />
         <br />
 
-        <Books books={this.state.books} />
+        <Books deleteHandler={this.deleteHandler.bind(this)} books={this.state.books} />
 
       </div>
     )

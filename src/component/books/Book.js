@@ -9,10 +9,13 @@ class Book extends Component {
                     <div className="col-lg-12">
                         <ul className="list-group">
                             <li className="list-group-item d-flex justify-content-between align-items-center">
-                                {this.props.name}
-                                <span className="list-group-item d-flex justify-content-between align-items-center">{this.props.price}</span>
-                                <FeatherIcon icon="trash" />
-                                <FeatherIcon icon="edit-3" />
+                                {this.props.book.name}
+                                <span className="d-flex">${this.props.book.price}
+                                    <div className="action_icon ml-5">
+                                        <span onClick={() => this.props.deleteHandler(this.props.book.id)}><FeatherIcon icon="trash" /></span>
+                                        <span className="ml-2"><FeatherIcon icon="edit-3" /></span>
+                                    </div>
+                                </span>
                             </li>
                         </ul>
                     </div>
