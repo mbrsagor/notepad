@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './style/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Welcome from './component/Welcome';
 import About from './component/about/About';
 import UserList from './component/user/UserList';
@@ -21,17 +21,19 @@ class App extends Component {
       <div className="App">
         <Nav />
         <BrowserRouter>
-          <Route exact path='/' component={Welcome} />
-          <Route path='/about' component={About} />
-          <Route path='/counter' component={Counter} />
-          <Route path='/myform' component={MyForm} />
-          <Route path='/postform' component={PostForm} />
-          <Route path='/post' component={Post} />
-          <Route path='/event' component={Event} />
-          <Route path='/userlist' component={UserList} />
-          <Route path='/stateless' component={StateLess} />
-          <Route path='/productList' component={ProductLIst} />
-          <Route path='/mybook' component={MyBook} />
+          <Switch>
+            <Route exact path='/' component={Welcome} />
+            <Route path='/about' component={About} />
+            <Route path='/counter' component={Counter} />
+            <Route path='/myform' component={MyForm} />
+            <Route path='/postform' component={PostForm} />
+            <Route path='/post' component={Post} />
+            <Route path='/event' component={Event} />
+            <Route path='/userlist' component={UserList} />
+            <Route path='/stateless' component={StateLess} />
+            <Route path='/productList' component={ProductLIst} />
+            <Route path='/mybook' component={MyBook} />
+          </Switch>
         </BrowserRouter>
       </div>
     )
