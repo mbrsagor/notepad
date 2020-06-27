@@ -9,6 +9,7 @@ import Event from './component/event/Event';
 import MyForm from './component/event/MyForm';
 import SateLessComponent from './component/stateLess/SateLessComponent';
 import Books from './component/books/Books';
+import Post from './component/post/Post';
 
 
 class App extends Component {
@@ -93,6 +94,12 @@ class App extends Component {
           deleteHandler={this.deleteHandler.bind(this)}
           books={this.state.books}
         />
+
+        <br/>
+        <br/>
+        <br/>
+
+        <Post />
 
       </div>
     )
