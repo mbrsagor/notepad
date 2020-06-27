@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './style/App.css';
+// import Navbar from ''
 import { BrowserRouter, Route } from 'react-router-dom';
 import Welcome from './component/Welcome';
 import About from './component/about/About';
@@ -12,15 +13,13 @@ import StateLess from './component/stateLess/StateLess';
 import MyBook from './component/books/MyBook';
 import Post from './component/post/Post';
 import PostForm from './component/form/PostForm';
-
+import Nav from './component/nav/Nav';
 
 class App extends Component {
-
-  
-
   render() {
     return (
       <div className="App">
+        <Nav />
         <BrowserRouter>
 
           <Route path='/' component={Welcome} />
