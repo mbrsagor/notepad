@@ -35,8 +35,8 @@ class Book extends Component {
                                 {input_book}
                                 <span className="d-flex">${this.props.book.price}
                                     <div className="action_icon ml-5">
-                                        <span onClick={() => this.props.deleteHandler(this.props.book.id)}><FeatherIcon icon="trash" /></span>
                                         <span onClick={() => this.setState({ is_editable: true })} className="ml-2"><FeatherIcon icon="edit-3" /></span>
+                                        <span onClick={() => this.props.deleteHandler(this.props.book.id)}><FeatherIcon icon="trash" /></span>
                                     </div>
                                 </span>
                             </li>
