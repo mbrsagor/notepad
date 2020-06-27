@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AuthService from '../auth/AuthService';
 
 class Nav extends Component {
 
@@ -43,6 +44,11 @@ class Nav extends Component {
                             <li class="nav-item">
                                 <a class="nav-link" href="/postform">Add New Item</a>
                             </li>
+                            {
+                                AuthService.isLogin && <li class="nav-item">
+                                    <a class="nav-link" href="/login">Logout</a>
+                                </li>
+                            }
                         </ul>
                     </div>
                 </nav>

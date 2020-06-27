@@ -14,6 +14,7 @@ import MyBook from './component/books/MyBook';
 import Post from './component/post/Post';
 import PostForm from './component/form/PostForm';
 import Auth from './component/auth/Auth';
+import Logout from './component/auth/Logout';
 import Nav from './component/nav/Nav';
 import PrivateRoute from './component/auth/PrivateRoute';
 
@@ -36,6 +37,7 @@ class App extends Component {
             <Route path='/productList' component={ProductLIst} />
             <Route path='/mybook' component={MyBook} />
             <Route path='/login' component={Auth} />
+            <Route path='/logout' component={Logout} />
           </Switch>
         </BrowserRouter>
       </div>
