@@ -10,6 +10,7 @@ import MyForm from './component/event/MyForm';
 import SateLessComponent from './component/stateLess/SateLessComponent';
 import Books from './component/books/Books';
 import Post from './component/post/Post';
+import PostForm from './component/form/PostForm';
 
 
 class App extends Component {
@@ -87,6 +88,9 @@ class App extends Component {
 
         <br />
         <br />
+
+        <PostForm />
+
         <br />
 
         <Books
@@ -95,9 +99,9 @@ class App extends Component {
           books={this.state.books}
         />
 
-        <br/>
-        <br/>
-        <br/>
+        <br />
+        <br />
+        <br />
 
         <Post />
 
