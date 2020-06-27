@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './style/App.css';
-// import Navbar from ''
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Welcome from './component/Welcome';
 import About from './component/about/About';
@@ -21,8 +21,7 @@ class App extends Component {
       <div className="App">
         <Nav />
         <BrowserRouter>
-
-          <Route path='/' component={Welcome} />
+          <Route exact path='/' component={Welcome} />
           <Route path='/about' component={About} />
           <Route path='/counter' component={Counter} />
           <Route path='/myform' component={MyForm} />
@@ -33,7 +32,6 @@ class App extends Component {
           <Route path='/stateless' component={StateLess} />
           <Route path='/productList' component={ProductLIst} />
           <Route path='/mybook' component={MyBook} />
-
         </BrowserRouter>
       </div>
     )
