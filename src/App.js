@@ -3,6 +3,7 @@ import './style/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Welcome from './component/Welcome';
+import Error from './component/Error';
 import About from './component/about/About';
 import UserList from './component/user/UserList';
 import Counter from './component/counter/Counter';
@@ -38,6 +39,7 @@ class App extends Component {
             <Route path='/mybook' component={MyBook} />
             <Route path='/login' component={Auth} />
             <Route path='/logout' component={Logout} />
+            <Route component={Error} />
           </Switch>
         </BrowserRouter>
       </div>
