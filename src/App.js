@@ -13,7 +13,9 @@ import StateLess from './component/stateLess/StateLess';
 import MyBook from './component/books/MyBook';
 import Post from './component/post/Post';
 import PostForm from './component/form/PostForm';
+import Auth from './component/auth/Auth';
 import Nav from './component/nav/Nav';
+import PrivateRoute from './component/auth/PrivateRoute';
 
 class App extends Component {
   render() {
@@ -26,13 +28,14 @@ class App extends Component {
             <Route path='/about' component={About} />
             <Route path='/counter' component={Counter} />
             <Route path='/myform' component={MyForm} />
-            <Route path='/postform' component={PostForm} />
+            <PrivateRoute path='/postform' component={PostForm} />
             <Route path='/post' component={Post} />
             <Route path='/event' component={Event} />
             <Route path='/userlist' component={UserList} />
             <Route path='/stateless' component={StateLess} />
             <Route path='/productList' component={ProductLIst} />
             <Route path='/mybook' component={MyBook} />
+            <Route path='/login' component={Auth} />
           </Switch>
         </BrowserRouter>
       </div>

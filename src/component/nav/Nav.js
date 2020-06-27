@@ -12,7 +12,7 @@ class Nav extends Component {
                     </button>
 
                     <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                        <ul class="navbar-nav">
+                        <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
                                 <a class="nav-link" href="/about">About</a>
                             </li>
@@ -39,6 +39,9 @@ class Nav extends Component {
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/mybook">Book</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/postform">Add New Item</a>
                             </li>
                         </ul>
                     </div>
