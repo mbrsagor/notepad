@@ -12,7 +12,7 @@ class Nav extends Component {
                     </button>
 
                     <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                        <ul class="navbar-nav ml-auto">
+                        <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a class="nav-link" href="/about">About</a>
                             </li>

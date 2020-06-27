@@ -11,6 +11,9 @@ How to create `react.js` project?
 ``N:B:`` Mac & Linux/Ubuntu is similar to the installation process.
 
 How to run the project:
+#### Step 1: `git clone` https://github.com/mbrsagor/ReactA2Z
+#### Step 2: `cd ReactA2Z` directory
+#### Step 3: `npm install`
 
 ### `npm start`
 Runs the app in the development mode.
