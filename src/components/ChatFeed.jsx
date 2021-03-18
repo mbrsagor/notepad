@@ -1,6 +1,6 @@
 import React from 'react';
-import MyMessage from './MyMessage';
 import MessageForm from './MessageForm';
+import MyMessage from './MyMessage';
 import TheirMessage from './TheirMessage';
 
 
@@ -44,9 +44,9 @@ const ChatFeed = (props) => {
             <h2>Prolific Tech Solution</h2>
             <div className="chat-title-container">
                 <div className="chat-title">{chat.title}</div>
-                <div className="chat-subtitle">
+                {/* <div className="chat-subtitle">
                     {chat.pepole.map((person) => ` ${person.person.username}`)}
-                </div>
+                </div> */}
             </div>
             {renderMessages()}
             <div style={{height: '100px'}}/>
