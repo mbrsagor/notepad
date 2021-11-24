@@ -11,6 +11,7 @@ https://github.com/mbrsagor/python-api.git
 cd python-api
 virtualenv venv --python=python3.8
 source venv/bin/active
+pip install -r requirements.txt
 ```
 
 #### How to Make Robust API Requests example:
