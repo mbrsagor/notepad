@@ -1,6 +1,8 @@
 import requests
 
-response = requests.get("http://api.open-notify.org/astros.json")
+BASE_URL = 'http://api.open-notify.org/'
+
+response = requests.get(f"{BASE_URL}+astros.json")
 
 """
 response.content() # Return the raw bytes of the data payload
@@ -13,7 +15,7 @@ Return: return_description
 """
 
 query = {'lat':'45', 'lon':'180'}
-response = requests.get('http://api.open-notify.org/iss-pass.json', params=query)
+response = requests.get(f"{BASE_URL}+astros.json", params=query)
 print(response.json())
 
 print(response)
