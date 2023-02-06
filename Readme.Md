@@ -17,6 +17,11 @@ source venv/bin/activate
 python run app.py
 ```
 
+###### Resources:
+```bash
+https://flask-sqlalchemy.palletsprojects.com/en/2.x/quickstart/
+```
+
 ```python
 try:
     response = requests.get('http://api.open-notify.org/astros.json', timeout=5)
