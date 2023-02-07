@@ -29,6 +29,12 @@ db.create_all()
 https://flask-sqlalchemy.palletsprojects.com/en/2.x/quickstart/
 ```
 
+##### ``Flask shell``:
+```python
+from app import NoteModel
+note = NoteModel.query.all()
+```
+
 ```python
 try:
     response = requests.get('http://api.open-notify.org/astros.json', timeout=5)
