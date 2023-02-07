@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 api = Api(app)  # For API service
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///notepad.db'
 db = SQLAlchemy(app)  # For database
 
 
@@ -13,16 +13,10 @@ class NoteModel(db.Model):
     title = db.Column(db.String(80))
     description = db.Column(db.String(1000))
 
-    def __repr__(self):
-        return self.title
-
-
-# db.create_all()
-
 
 class TestAPIService(Resource):
     def get(self):
-        return {"data": "This is a test API."}
+        return {"name": "This is a test API guys."}
 
 
 class GetNameAPI(Resource):

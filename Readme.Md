@@ -17,6 +17,13 @@ source venv/bin/activate
 python run app.py
 ```
 
+#### Manual db migration
+```bash
+flask shell
+from app import db
+db.create_all() 
+```
+
 ###### Resources:
 ```bash
 https://flask-sqlalchemy.palletsprojects.com/en/2.x/quickstart/
