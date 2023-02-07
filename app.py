@@ -15,6 +15,9 @@ class NoteModel(db.Model):
     title = db.Column(db.String(80))
     description = db.Column(db.String(1000))
 
+    def __repr__(self):
+        return f'<NoteModel {self.title}>'
+
 
 class NotePadAPIList(Resource):
 
