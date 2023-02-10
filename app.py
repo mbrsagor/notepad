@@ -2,6 +2,7 @@ from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Resource, Api
 
+from utils.response import prepare_success_response, prepare_error_response, prepare_create_success_response
 from messages import SUCCESS_MSG, ERROR_MSG, DATA_RENDER_SUCCESS, DATA_RENDER_FAIL, NOTE_UPDATE_MSG, NOTE_DELETE_MSG
 
 app = Flask(__name__)
@@ -32,18 +33,12 @@ class NotePadAPIList(Resource):
                     'description': note.description,
                 }
                 notes.append(notepad_details)
-            response = {
-                'status': 200,
-                'message': DATA_RENDER_SUCCESS,
-                'data': notes
-            }
-            return response
+            return prepare_success_response(notes)
         else:
-            return {"status": 404, "message": DATA_RENDER_FAIL}
+            return prepare_error_response(DATA_RENDER_FAIL)
 
 
 class CreateNoteAPIView(Resource):
-    response = {"status": 400, "message": ERROR_MSG}
 
     def post(self):
         data = request.get_json()
@@ -52,9 +47,7 @@ class CreateNoteAPIView(Resource):
         notepad = NoteModel(title=title, description=description)
         db.session.add(notepad)
         db.session.commit()
-        self.response["status"] = 201
-        self.response["message"] = SUCCESS_MSG
-        return self.response, 201
+        return prepare_create_success_response()
 
 
 class GetNoteByIDAPIView(Resource):
