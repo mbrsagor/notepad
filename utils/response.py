@@ -24,3 +24,12 @@ def prepare_create_success_response():
         'message': 'Data Successfully created'
     }
     return response
+
+
+def prepare_update_success_response(msg):
+    """ prepare success response for all serializer """
+    response = {
+        'status': True,
+        'message': msg
+    }
+    return response

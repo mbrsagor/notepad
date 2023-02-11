@@ -2,8 +2,9 @@ from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Resource, Api
 
-from utils.response import prepare_success_response, prepare_error_response, prepare_create_success_response
-from messages import SUCCESS_MSG, ERROR_MSG, DATA_RENDER_SUCCESS, DATA_RENDER_FAIL, NOTE_UPDATE_MSG, NOTE_DELETE_MSG
+from messages import ERROR_MSG, DATA_RENDER_FAIL, NOTE_UPDATE_MSG, NOTE_DELETE_MSG
+from utils.response import prepare_success_response, prepare_error_response, prepare_create_success_response, \
+    prepare_update_success_response
 
 app = Flask(__name__)
 api = Api(app)  # For API service
@@ -50,8 +51,7 @@ class CreateNoteAPIView(Resource):
         return prepare_create_success_response()
 
 
-class GetNoteByIDAPIView(Resource):
-    response = {"status": 404, "message": DATA_RENDER_SUCCESS}
+class NoteDetailAPIView(Resource):
 
     def get(self, note_id):
         note = NoteModel.query.filter_by(id=note_id).first()
@@ -61,15 +61,12 @@ class GetNoteByIDAPIView(Resource):
                 'title': note.title,
                 'description': note.description,
             }
-            self.response["status"] = 200
-            self.response["data"] = notepad_details
-            return self.response, 200
+            return prepare_success_response(notepad_details)
         else:
-            return self.response, 404
+            return prepare_error_response(ERROR_MSG)
 
 
 class NoteUpdateAPIView(Resource):
-    response = {"status": 404, "message": ERROR_MSG}
 
     def put(self, note_id):
         note = NoteModel.query.filter_by(id=note_id).first()
@@ -80,11 +77,9 @@ class NoteUpdateAPIView(Resource):
             note.title = title
             note.description = description
             db.session.commit()
-            self.response["status"] = 200
-            self.response["message"] = NOTE_UPDATE_MSG
-            return self.response, 200
+            return prepare_update_success_response(NOTE_UPDATE_MSG)
         else:
-            return self.response, 404
+            return prepare_error_response(ERROR_MSG)
 
 
 class DeleteNoteAPIView(Resource):
@@ -104,7 +99,7 @@ class DeleteNoteAPIView(Resource):
 
 api.add_resource(NotePadAPIList, '/')
 api.add_resource(CreateNoteAPIView, '/create/')
-api.add_resource(GetNoteByIDAPIView, '/note/<int:note_id>/')
+api.add_resource(NoteDetailAPIView, '/note/<int:note_id>/')
 api.add_resource(NoteUpdateAPIView, '/note-update/<int:note_id>/')
 api.add_resource(DeleteNoteAPIView, '/note-delete/<int:note_id>/')
 
