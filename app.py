@@ -13,6 +13,9 @@ db = SQLAlchemy(app)  # For database
 
 
 class NoteModel(db.Model):
+    """
+    Notepad db model
+    """
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80))
     description = db.Column(db.String(1000))
@@ -22,6 +25,10 @@ class NoteModel(db.Model):
 
 
 class NotePadAPIList(Resource):
+
+    """
+    List of notepad API endpoint
+    """
 
     def get(self):
         notepads = NoteModel.query.all()
@@ -40,7 +47,9 @@ class NotePadAPIList(Resource):
 
 
 class CreateNoteAPIView(Resource):
-
+    """
+    Create notepad API
+    """
     def post(self):
         data = request.get_json()
         title = data["title"]
@@ -52,7 +61,9 @@ class CreateNoteAPIView(Resource):
 
 
 class NoteDetailAPIView(Resource):
-
+    """
+    Notepad details API
+    """
     def get(self, note_id):
         note = NoteModel.query.filter_by(id=note_id).first()
         if note:
@@ -67,7 +78,9 @@ class NoteDetailAPIView(Resource):
 
 
 class NoteUpdateAPIView(Resource):
-
+    """
+    Notepad update API
+    """
     def put(self, note_id):
         note = NoteModel.query.filter_by(id=note_id).first()
         if note:
@@ -83,6 +96,9 @@ class NoteUpdateAPIView(Resource):
 
 
 class DeleteNoteAPIView(Resource):
+    """
+    Notepad delete API endpoint
+    """
     response = {"status": 404, "message": ERROR_MSG}
 
     def delete(self, note_id):
@@ -97,6 +113,7 @@ class DeleteNoteAPIView(Resource):
             return self.response, 404
 
 
+# Router/route
 api.add_resource(NotePadAPIList, '/')
 api.add_resource(CreateNoteAPIView, '/create/')
 api.add_resource(NoteDetailAPIView, '/note/<int:note_id>/')
