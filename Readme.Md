@@ -94,3 +94,29 @@ except requests.exceptions.Timeout as errt:
 except requests.exceptions.RequestException as err:
     print(err)
 ```
+
+> Celery task
+
+```bash
+pip install celery
+```
+
+> A Celery worker must be running to run the task. Starting a worker is shown in the previous sections.
+```python
+from flask import request
+@app.post("/add")
+def start_add() -> dict[str, object]:
+    a = request.form.get("a", type=int)
+    b = request.form.get("b", type=int)
+    result = add_together.delay(a, b)
+    return {"result_id": result.id}
+```
+
+> Here’s an example task that adds two numbers together and returns the result.
+```bash
+from celery import shared_task
+
+@shared_task(ignore_result=False)
+def add_together(a: int, b: int) -> int:
+    return a + b
+```
