@@ -8,7 +8,7 @@
 ```bash
 git clone https://github.com/mbrsagor/notepad.git
 cd notepad
-virtualenv venv --python=python3.10
+virtualenv venv --python=python3.12
 source venv/bin/activate
 ```
 
